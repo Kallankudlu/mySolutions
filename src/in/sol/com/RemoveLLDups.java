@@ -19,8 +19,7 @@ class Node1 {
 	}
 }
 
-public class RemoveLLDups {
-
+class RemoveLLdups {
 	public static Node1 removeDuplicates(Node1 head) {
 		if (head == null) {
 			return null;
@@ -59,11 +58,7 @@ public class RemoveLLDups {
 		}
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		Node1 head = null;
 		int T = sc.nextInt();
@@ -74,5 +69,4 @@ public class RemoveLLDups {
 		head = removeDuplicates(head);
 		display(head);
 	}
-
 }
