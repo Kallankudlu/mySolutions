@@ -4,27 +4,38 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class SockMerchant {
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		int n = in.nextInt();
-
-		HashMap inventory = new HashMap<Integer, Integer>();
-
+	static int sockMerchant(int n, int[] ar) {
 		int matchingPairs = 0;
-
+		HashMap<Integer, Integer> matched = new HashMap<Integer, Integer>();
 		for (int i = 0; i < n; i++) {
-			int color = in.nextInt();
-
-			// This checks if we already have 1 sock of that color and if we do
-			// then we increment matchingPairs and set unmatched //socks of that
-			// color back to 0
-			if (inventory.containsKey(color) && inventory.get(color).equals(new Integer(1))) {
-				inventory.put(color, 0);
+			if (matched.containsKey(ar[i]) && matched.get(ar[i]).equals(new Integer(1))) {
+				matched.put(ar[i], 0);
 				matchingPairs++;
 				continue;
 			}
-			inventory.put(color, 1);
+			matched.put(ar[i], 1);
 		}
-		System.out.println(matchingPairs);
+		return matchingPairs;
+	}
+
+	private static final Scanner scanner = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int n = scanner.nextInt();
+
+		int[] ar = new int[n];
+
+		// String[] arItems = scanner.nextLine().split(" ");
+		Integer[] arItems = { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
+		for (int i = 0; i < n; i++) {
+			int arItem = arItems[i];
+			ar[i] = arItem;
+		}
+
+		int result = sockMerchant(n, ar);
+		System.out.println(result);
+
+		scanner.close();
 	}
 }
