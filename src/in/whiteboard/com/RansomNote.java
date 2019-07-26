@@ -10,6 +10,21 @@ import java.util.Scanner;
  * @author athreya.ks
  *
  */
+/*INPUT 1
+ * 6 4
+ * give me one grand today night
+ * give one grand today
+ * 
+ * OUTPUT : Yes
+*/ 
+
+/*INPUT 2
+ * 7 4
+ * ive got a lovely bunch of coconuts
+ * ive got some coconuts
+ * 
+ * OUTPUT : No
+*/ 
 public class RansomNote {
 
 	/**
