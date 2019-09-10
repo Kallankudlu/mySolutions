@@ -58,7 +58,7 @@ public class Tree_height {
 		}
 	}
 
-	static public void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		new Thread(null, new Runnable() {
 			public void run() {
 				try {
