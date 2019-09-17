@@ -1,6 +1,7 @@
 package in.sol.justTinkering;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -108,6 +109,10 @@ public class MaxHeap implements Heap {
         } catch (Exception e) {
             throw new EmptyHeapException("Heap is empty. Error retrieving element");
         }
+    }
+    
+    public static void main(String[] args){
+  
     }
 
 }
