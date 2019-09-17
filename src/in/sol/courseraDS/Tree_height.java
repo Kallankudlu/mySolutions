@@ -6,6 +6,7 @@ package in.sol.courseraDS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -34,31 +35,50 @@ public class Tree_height {
 
 	public class TreeHeight {
 		int n;
-		int parent[];
+		ArrayList<ArrayList<Integer>> children;
+		int root;
 
 		void read() throws IOException {
 			FastScanner in = new FastScanner();
 			n = in.nextInt();
-			parent = new int[n];
+			children = new ArrayList<ArrayList<Integer>>(n);
+			for (int i = 0; i < n; i++)
+				children.add(new ArrayList<Integer>());
 			for (int i = 0; i < n; i++) {
-				parent[i] = in.nextInt();
+
+				int parent = in.nextInt();
+				if (parent == -1)
+					root = i;
+				else {
+
+					// System.out.println(children.get(parent).size());
+					children.get(parent).add(i);
+					// System.out.println("go");
+				}
 			}
+		}
+
+		int compute(int root) {
+			int max = 0;
+			for (int i = 0; i < children.get(root).size(); i++) {
+				max = Math.max(max, compute(children.get(root).get(i)));
+			}
+			return max + 1;
 		}
 
 		int computeHeight() {
 			// Replace this code with a faster implementation
-			int maxHeight = 0;
-			for (int vertex = 0; vertex < n; vertex++) {
-				int height = 0;
-				for (int i = vertex; i != -1; i = parent[i])
-					height++;
-				maxHeight = Math.max(maxHeight, height);
-			}
-			return maxHeight;
+			/*
+			 * int maxHeight = 0; for (int vertex = 0; vertex < n; vertex++) {
+			 * int height = 0; for (int i = vertex; i != -1; i = parent[i])
+			 * height++; maxHeight = Math.max(maxHeight, height); } return
+			 * maxHeight;
+			 */
+			return compute(root);
 		}
 	}
 
-	public static void main(String[] args) {
+	static public void main(String[] args) throws IOException {
 		new Thread(null, new Runnable() {
 			public void run() {
 				try {
