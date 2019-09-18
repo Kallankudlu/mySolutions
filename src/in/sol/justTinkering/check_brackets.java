@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.sol.courseraDS;
+package in.sol.justTinkering;
 
 import java.io.BufferedReader;
 import java.io.IOException;
