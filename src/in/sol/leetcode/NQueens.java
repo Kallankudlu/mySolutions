@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.sol.rosetta;
+package in.sol.leetcode;
 
 /**
  * @author athreya.ks
