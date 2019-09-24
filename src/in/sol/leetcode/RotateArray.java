@@ -16,11 +16,13 @@ public class RotateArray {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int[] array = { 1, 2, 3, 4, 5};
 		Scanner scanner = new Scanner(System.in);
 		int k = scanner.nextInt();
-		rotate(array, k);
+		/*rotate(array, k);
+		bubbleSortRotate(array,k);*/
 		reversalRotate(array, k);
+		//nitish(array, k);
 	}
 
 	public static void rotate(int[] arr, int k) {
@@ -79,5 +81,28 @@ public class RotateArray {
 			left++;
 			right--;
 		}
+	}
+	
+	public static void nitish(int[] arr, int k)
+	{
+		int[] atemp = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int[] aData = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int temp1=0;		
+		while(k!=0)
+		{
+			temp1 = aData[aData.length -1];
+			for(int i= 1; i<aData.length;i++)
+			{
+				atemp[i]=aData[i-1];
+			}
+			atemp[0] = temp1;
+			for(int i= 1; i<atemp.length;i++)
+			{
+				aData[i]=atemp[i];
+			}
+			aData = atemp;
+			k--;
+		}
+		System.out.println(Arrays.toString(aData));
 	}
 }
