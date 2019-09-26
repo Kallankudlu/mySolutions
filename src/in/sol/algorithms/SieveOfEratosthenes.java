@@ -3,7 +3,8 @@
  */
 package in.sol.algorithms;
 
-import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author athreya.ks
@@ -34,7 +35,9 @@ class SieveOfEratosthenes {
 					primes[i] = false;
 			}
 		}
-
+		Stream<Boolean> stream = IntStream.range(0, primes.length).mapToObj(idx -> primes[idx]);
+		
+		//stream.mapToObj(s->false).forEach(s -> System.out.println(s));
 	}
 
 	// Driver Program to test above function
