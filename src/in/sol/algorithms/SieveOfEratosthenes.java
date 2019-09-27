@@ -26,7 +26,7 @@ import java.util.stream.Stream;
 class SieveOfEratosthenes {
 	void sieveOfEratosthenes(int n) {
 		boolean[] primes = new boolean[n + 1];
-		for (int i = 0; i < n; i++) {
+		for (int i = 2; i < n; i++) {
 			primes[i] = true;
 		}
 		for (int p = 2; p * p <= n; p++) {
@@ -35,9 +35,7 @@ class SieveOfEratosthenes {
 					primes[i] = false;
 			}
 		}
-		Stream<Boolean> stream = IntStream.range(0, primes.length).mapToObj(idx -> primes[idx]);
-		
-		//stream.mapToObj(s->false).forEach(s -> System.out.println(s));
+		IntStream.range(0, primes.length).filter(onlyPrimes -> primes[onlyPrimes] == true).mapToObj(idx -> String.format("%d", idx)).forEach(s -> System.out.println(s));
 	}
 
 	// Driver Program to test above function
