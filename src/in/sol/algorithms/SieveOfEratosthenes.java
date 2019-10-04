@@ -3,8 +3,10 @@
  */
 package in.sol.algorithms;
 
+import java.util.Collection;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * @author athreya.ks
@@ -35,7 +37,8 @@ class SieveOfEratosthenes {
 					primes[i] = false;
 			}
 		}
-		IntStream.range(0, primes.length).filter(onlyPrimes -> primes[onlyPrimes] == true).mapToObj(idx -> String.format("%d", idx)).forEach(s -> System.out.println(s));
+		IntStream.range(0, primes.length).filter(onlyPrimes -> primes[onlyPrimes] == true)
+				.mapToObj(idx -> String.format("%d", idx)).forEach(s -> System.out.println(s));
 	}
 
 	// Driver Program to test above function
